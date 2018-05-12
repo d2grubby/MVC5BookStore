@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Đăng nhập Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="Designer" content="PremiumPixels.com">
+    <meta name="Author" content="$hekh@r d-Ziner, CSSJUNTION.com">
+    <link rel="stylesheet" type="text/css" href="~/Content/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/structure.css">
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+    @Html.ValidationSummary(true)
+    <center><h1>Đăng nhập Admin</h1></center>
+    <form class="box login">
+        <fieldset class="boxBody">
+            <label>Tài khoản Admin: </label>
+            <input type="text" name="username" tabindex="1" placeholder="" required> @ViewData["Loi1"]
+            <label>Mật khẩu: </label>
+            <input type="password" name="password" tabindex="3" required>@ViewData["Loi2"]
+            <label><a href="#" class="rLink" tabindex="5">Quên mật khẩu?</a></label>
+        </fieldset>
+        <label>Giữ trạng thái đăng nhập    <input type="checkbox" tabindex="3"></label>
+
+        <input type="submit" class="btnLogin" value="Đăng nhập" tabindex="4">
+    </form>
+    }
+    <footer id="main">
+        <a href="http://wwww.cssjunction.com">Simple Login Form (HTML5/CSS3 Coded) by CSS Junction</a> | <a href="http://www.premiumpixels.com">PSD by Premium Pixels</a>
+    </footer>
+</body>
+</html>

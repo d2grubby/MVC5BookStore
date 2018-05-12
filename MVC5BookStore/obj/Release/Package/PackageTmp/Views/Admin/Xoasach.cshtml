@@ -1,0 +1,74 @@
+﻿@model MVC5BookStore.Models.SACH
+
+@{
+    ViewBag.Title = "Xoasach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Xóa sách</title>
+<center>
+    <h3>Bạn quyết định xóa quyển sách này ?</h3>
+    <p></p>
+</center>
+<div>
+    <hr />
+    <div style="padding:0 20px 0 20px ">
+        <dl class="dl-horizontal">
+            <dt style="font-size:20px">
+                <center><h3>@Html.DisplayFor(model => model.Tensach)</h3></center>
+            </dt>
+            <dd>
+                <center><img src="~/Images/@Model.Hinhminhhoa" width="200" style="text-align:center" /></center>
+            </dd>
+
+            <dt>
+                Đơn vị tính: @Html.DisplayFor(model => model.Donvitinh)
+            </dt>
+
+            <dt style="padding: 10px 0 0 0">
+                Đơn giá: @String.Format("{0:0,0}", Model.Dongia) VNĐ
+            </dt>
+
+            <dt style="text-align:justify;padding: 10px 0 0 0">
+                Mô tả: @Html.DisplayFor(model => model.Mota)
+            </dt>
+
+            <dt style="padding: 10px 0 0 0">
+                Mã chủ đề: @Html.DisplayFor(model => model.MaCD)
+            </dt>
+
+            <dt style="padding: 10px 0 0 0">
+                Mã NXB: @Html.DisplayFor(model => model.MaNXB)
+            </dt>
+
+            <dt style="padding: 10px 0 0 0">
+                Ngày cập nhật: @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+            </dt>
+
+            <dt style="padding: 10px 0 0 0">
+                Số lượng bán: @Html.DisplayFor(model => model.Soluongban)
+            </dt>
+
+            <dt style="padding: 10px 0 0 0">
+                Số lần xem: @Html.DisplayFor(model => model.solanxem)
+            </dt>
+
+        </dl>
+    </div>
+</div>
+<p></p>
+<hr />
+<p></p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <center>
+        <font size="4">
+            <div class="button">
+                <input type="submit" value="Xóa" class="btn btn-default" height="200" width="200" style="font-size:16px ; background-color:forestgreen; color:white ;padding: 5px 20px 5px 20px; font-weight:bold"/> |
+                @Html.ActionLink("Quay về", "Sach", "Admin")
+            </div>
+        </font>
+    </center>
+}
+<p></p>

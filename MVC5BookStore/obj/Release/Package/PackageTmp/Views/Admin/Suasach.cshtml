@@ -1,0 +1,115 @@
+﻿@model MVC5BookStore.Models.SACH
+
+@{
+    ViewBag.Title = "Suasach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Sửa sách</title>
+<center>
+    <h3>ĐIỀU CHỈNH THÔNG TIN SÁCH</h3>
+</center>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Masach)
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Tên sách:
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tensach, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tensach, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Đơn vị tính:
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Donvitinh, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Donvitinh, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Đơn giá:
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Dongia, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dongia, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Mô tả:
+        <div class="col-md-10" style="padding: 0 20px 0 0">
+            @*<textarea name="Mota">@Model.Mota</textarea>*@
+            @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Ảnh bìa:
+        <div class="col-md-10">
+
+            <img src="@Url.Content("~/Images/" + Model.Hinhminhhoa)" width="200" /> (Ảnh hiện tại)
+            <p></p>
+            <input type="file" name="fileupload" />
+            @ViewBag.ThongBao
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Mã chủ đề:
+        <div class="col-md-10">
+            @Html.DropDownList("MaCD")
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Mã NXB:
+        <div class="col-md-10">
+            @Html.DropDownList("MaNXB")
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Ngày cập nhật:
+        <div class="col-md-10">
+            <input type="date" name="Ngaycapnhat"/>
+            @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Số lượng bán:
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Soluongban, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Soluongban, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 10px 0 0 10px">
+        Số lần xem:
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.solanxem, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.solanxem, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <p></p>
+    <hr />
+    <p></p>
+    <div class="form-group">
+        <center>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" style="font-size:16px ; background-color:forestgreen; color:white ;padding: 5px 20px 5px 20px; font-weight:bold" /> |
+                <font size="4">
+                    @Html.ActionLink("Quay về", "Sach", "Admin")
+                </font>
+            </div>
+        </center>
+    </div>
+    <p></p>
+</div>
+    }

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link href="~/Content/style2.css" rel="stylesheet" />
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+</head>
+<body id="section-index">
+    <div id="header">
+        <center>
+            <h1>LÝ MINH DUY - 15DH110064</h1>
+            <h1>WEBSITE BÁN SÁCH</h1>
+        </center>
+        <p></p>
+        <div id="navigation" style="margin-bottom:5px;">
+            <ul>
+                <li>@Html.ActionLink("Trang chủ Admin", "Index", "Admin")</li>
+                <li>@Html.ActionLink("Trang chủ khách hàng", "Index", "Bookstore")</li>
+                <li>@Html.ActionLink("Quản lý sách", "Sach", "Admin")</li>
+            </ul>
+        </div>
+        <b>
+        <div id="main-image" style="margin-bottom:5px;"></div>
+        <div id="container">
+            <div id="content">
+                <div id="nav-right" style="margin-bottom:5px;">
+                    <ul>
+                        @Html.Action("GiohangPartial", "GioHang")
+                        @Html.Action("Nhaxuatban", "BookStore")
+                    </ul>
+                </div>
+                <div id="nav">
+                    @Html.Action("Chude", "BookStore")
+                </div>
+                <div id="content-main">
+                    <div class="post">
+                        <div class="posttitle">
+                            <center><h1>SÁCH</h1></center>
+                        </div>
+                        <div class="entry">
+                            <div>
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="posttitle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-area" style="margin-top:5px;">
+            <b>Theme by <a href="http://www.itsnature.org">Nature Pictures</a></b>
+            <div id="back-to-top"><a href="#header">Back to Top</a></div>
+        </div>
+        <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+</b></body>
+</html>

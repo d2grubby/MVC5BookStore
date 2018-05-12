@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "SPTheoChuDe";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<title>Sách theo chủ đề</title>
+<center><h2 style="font-weight:bold">Sách theo chủ đề</h2></center>
+<p></p>
+<hr />
+<div class"row">
+    <div id="content-main" class="entry">
+        @foreach (var sach in Model)
+        {
+            <div>
+                <br />
+                <h4 style="text-align:center">
+                    <b>
+                        @sach.Tensach
+                    </b>
+                </h4>
+            </div>
+            <center>
+                <a href="@Url.Action("Details", "Bookstore", new { id = sach.Masach })">
+                    <img alt="@sach.Tensach" src="~/Images/@sach.Hinhminhhoa" width="200" />
+                </a>
+            </center>
+        }
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@using MVC5BookStore.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<title>Trang chủ</title>
+@foreach (var sach in Model)
+{
+    <div>
+        <br />
+        <h4 style="text-align:center">
+            <b>@sach.Tensach</b>
+        </h4>
+    </div>
+    <center>
+        <a href="@Url.Action("Details", "Bookstore", new { id = sach.Masach })">
+            <img src="~/Images/@sach.Hinhminhhoa" width="200" />
+        </a>
+    </center>
+
+}
+<p></p>
+<hr />
+<center>
+    <h1>
+        TRANG @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+        </div>
+        <style>
+            .MenuTrang li {
+                display: inline;
+            }
+        </style>
+    </h1>
+</center>
+<p></p>
+
+
